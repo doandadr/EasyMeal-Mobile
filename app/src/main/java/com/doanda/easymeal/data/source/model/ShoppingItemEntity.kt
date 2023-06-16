@@ -3,7 +3,6 @@ package com.doanda.easymeal.data.source.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "shoppingItem")
 data class ShoppingItemEntity (
@@ -15,10 +14,10 @@ data class ShoppingItemEntity (
     val ingName: String,
 
     @field:ColumnInfo(name = "qty")
-    val qty: Float,
+    var qty: Float,
 
     @field:ColumnInfo(name = "unit")
-    val unit: String,
+    var unit: String,
 
     @field:ColumnInfo(name = "isHave")
     var isHave: Boolean

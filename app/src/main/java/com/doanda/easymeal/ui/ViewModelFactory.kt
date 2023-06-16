@@ -3,18 +3,18 @@ package com.doanda.easymeal.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.doanda.easymeal.MainViewModel
+import com.doanda.easymeal.data.di.Injection
 import com.doanda.easymeal.data.repository.IngredientRepository
 import com.doanda.easymeal.data.repository.RecipeRepository
 import com.doanda.easymeal.data.repository.ShoppingRepository
 import com.doanda.easymeal.data.repository.UserRepository
-import com.doanda.easymeal.di.Injection
-import com.doanda.easymeal.ui.camera.CameraViewModel
 import com.doanda.easymeal.ui.detection.result.DetectionResultViewModel
 import com.doanda.easymeal.ui.favorite.FavoriteViewModel
 import com.doanda.easymeal.ui.login.LoginViewModel
+import com.doanda.easymeal.ui.main.MainViewModel
 import com.doanda.easymeal.ui.pantry.PantryViewModel
 import com.doanda.easymeal.ui.recipe.RecipeViewModel
+import com.doanda.easymeal.ui.recipedetail.DetailIngredientViewModel
 import com.doanda.easymeal.ui.recipedetail.RecipeDetailViewModel
 import com.doanda.easymeal.ui.register.RegisterViewModel
 import com.doanda.easymeal.ui.setting.SettingViewModel
@@ -38,21 +38,21 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(MainViewModel::class.java) ->
                 MainViewModel(userRepository) as T
             modelClass.isAssignableFrom(SettingViewModel::class.java) ->
-                SettingViewModel(userRepository) as T
+                SettingViewModel(userRepository, recipeRepository, ingredientRepository, shoppingRepository) as T
             modelClass.isAssignableFrom(PantryViewModel::class.java) ->
                 PantryViewModel(userRepository, ingredientRepository) as T
             modelClass.isAssignableFrom(RecipeViewModel::class.java) ->
                 RecipeViewModel(userRepository, recipeRepository, ingredientRepository) as T
             modelClass.isAssignableFrom(RecipeDetailViewModel::class.java) ->
-                RecipeDetailViewModel(userRepository, ingredientRepository, recipeRepository, shoppingRepository) as T
+                RecipeDetailViewModel(userRepository, recipeRepository, ingredientRepository) as T
+            modelClass.isAssignableFrom(DetailIngredientViewModel::class.java) ->
+                DetailIngredientViewModel(ingredientRepository, shoppingRepository) as T
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) ->
                 FavoriteViewModel(userRepository, recipeRepository) as T
             modelClass.isAssignableFrom(ShoppingListViewModel::class.java) ->
                 ShoppingListViewModel(userRepository, shoppingRepository) as T
             modelClass.isAssignableFrom(DetectionResultViewModel::class.java) ->
                 DetectionResultViewModel(userRepository, ingredientRepository) as T
-            modelClass.isAssignableFrom(CameraViewModel::class.java) ->
-                CameraViewModel() as T
             modelClass.isAssignableFrom(WelcomeViewModel::class.java) ->
                 WelcomeViewModel(userRepository, ingredientRepository) as T
 

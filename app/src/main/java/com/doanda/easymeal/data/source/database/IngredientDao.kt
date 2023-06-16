@@ -3,7 +3,6 @@ package com.doanda.easymeal.data.source.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.doanda.easymeal.data.source.model.IngredientEntity
-import com.doanda.easymeal.data.source.model.RecipeEntity
 
 @Dao
 interface IngredientDao {
@@ -41,4 +40,7 @@ interface IngredientDao {
 
     @Query("SELECT * FROM ingredient WHERE ingName LIKE :ingName")
     fun searchIngredientByName(ingName: String): LiveData<List<IngredientEntity>>
+
+    @Query("SELECT * FROM ingredient WHERE id IN (:listId)")
+    fun getIngredientsByIds(listId: List<Int>): LiveData<List<IngredientEntity>>
 }

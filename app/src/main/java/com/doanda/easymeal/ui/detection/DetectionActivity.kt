@@ -5,12 +5,11 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.doanda.easymeal.R
 import com.doanda.easymeal.databinding.ActivityDetectionBinding
@@ -26,22 +25,24 @@ class DetectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         setupView()
     }
 
     private fun setupView() {
         binding.cameraXButton.setOnClickListener {
-            Toast.makeText(this, "Camera clcked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Camera clcked", Toast.LENGTH_SHORT).show()
             startCameraX()
         }
         binding.galleryButton.setOnClickListener {
-            Toast.makeText(this, "Gallery clcked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Gallery clcked", Toast.LENGTH_SHORT).show()
             startGallery()
         }
     }
 
     private fun startCameraX() {
-        Toast.makeText(this@DetectionActivity, getString(R.string.opening_camera), Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this@DetectionActivity, getString(R.string.opening_camera), Toast.LENGTH_SHORT).show()
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this@DetectionActivity,

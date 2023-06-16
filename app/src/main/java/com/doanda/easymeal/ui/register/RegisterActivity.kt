@@ -2,7 +2,6 @@ package com.doanda.easymeal.ui.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -22,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.hide()
 
         setupView()
     }
@@ -44,6 +43,11 @@ class RegisterActivity : AppCompatActivity() {
         val email = binding.etRegisterEmail.text.toString()
         val password = binding.etRegisterPassword.text.toString()
         val confirmPassword = binding.etRegisterConfirm.text.toString()
+
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())  {
+            Toast.makeText(this, getString(R.string.cannot_be_empty), Toast.LENGTH_SHORT).show()
+            return
+        }
         if (password != confirmPassword) {
             Toast.makeText(this, getString(R.string.response_register_confirm_fail), Toast.LENGTH_SHORT).show()
             return
@@ -61,8 +65,8 @@ class RegisterActivity : AppCompatActivity() {
                     }
                     is Result.Error -> {
                         showLoading(false)
-                        Log.e(TAG, result.error)
-                        Toast.makeText(this, getString(R.string.response_register_failed), Toast.LENGTH_SHORT).show()
+                        val message = if ("400" in result.error) getString(R.string.email_already) else getString(R.string.response_register_failed)
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                     }
                     is Result.Loading -> showLoading(true)
                 }

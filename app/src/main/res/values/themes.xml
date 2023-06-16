@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.EasyMeal" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.EasyMeal" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="android:fontFamily">@font/poppins</item>
         <item name="colorPrimary">@color/primary</item>
@@ -21,27 +21,22 @@
 
     </style>
 
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:windowBackground">@drawable/layer_list_splash</item>
+    </style>
+
     <!--    THEME-->
     <style name="Layout">
-        <item name="android:background">@color/white_theme</item>
+<!--        <item name="android:background">@color/white_theme</item>-->
     </style>
-
-    <!--    ACTION BAR-->
-<!--    <style name="ActionBar" parent="Widget.Material3.Light.ActionBar.Solid">-->
-<!--        <item name="background">@color/white</item>-->
-<!--    </style>-->
 
     <!--    SEARCH BAR-->
-    <style name="SearchBar" parent="Widget.Material3.SearchBar">
-
-    </style>
-
 
     <!--    TEXT FIELD-->
     <style name="TextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/grey_theme</item>
-        <item name="hintTextColor">@color/grey_theme</item>
-        <item name="titleTextColor">@color/grey_theme</item>
+        <item name="boxStrokeColor">@color/grey</item>
+        <item name="hintTextColor">@color/grey</item>
+        <item name="titleTextColor">@color/grey</item>
         <item name="boxStrokeWidth">2dp</item>
         <item name="boxCornerRadiusBottomStart">24dp</item>
         <item name="boxCornerRadiusBottomEnd">24dp</item>
@@ -56,16 +51,13 @@
     <style name="TextField.Password">
         <item name="startIconDrawable">@drawable/ic_key</item>
         <item name="endIconMode">password_toggle</item>
-        <item name="endIconTint">@color/grey_theme</item>
+        <item name="endIconTint">@color/grey</item>
     </style>
 
     <style name="TextField.Email">
         <item name="startIconDrawable">@drawable/ic_mail_outline</item>
     </style>
 
-
-
-<!--    TODO style progress bar-->
     <!--    PROGRESS BAR-->
     <style name="ProgressBar">
         <item name="android:visibility">invisible</item>
@@ -77,38 +69,19 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
-                <item name="boxCornerRadiusBottomStart">24dp</item>
-                <item name="boxCornerRadiusBottomEnd">24dp</item>
-                <item name="boxCornerRadiusTopStart">24dp</item>
-                <item name="boxCornerRadiusTopEnd">24dp</item>
-        <!--        <item name="android:topLeftRadius">8dp</item>-->
-        <!--        <item name="android:topRightRadius">8dp</item>-->
-        <!--        <item name="android:bottomLeftRadius">8dp</item>-->
-        <!--        <item name="android:bottomRightRadius">8dp</item>-->
+        <item name="cornerRadius">20dp</item>
     </style>
 
     <style name="Button.Secondary">
         <item name="backgroundTint">@color/secondary</item>
-        <!--        <item name="android:textColor">@color/black</item>-->
-        <!--        <item name="android:padding">8dp</item>-->
-    </style>
-
-    <style name="Button.Secondary.Inactive">
-        <item name="backgroundTint">@color/secondary_lighter</item>
-        <!--        <item name="android:textColor">@color/grey_theme</item>-->
-        <!--        <item name="android:padding">8dp</item>-->
     </style>
 
     <style name="Button.Primary">
         <item name="backgroundTint">@color/primary</item>
-        <!--        <item name="android:textColor">@color/black</item>-->
-        <!--        <item name="android:padding">8dp</item>-->
     </style>
 
     <!--    IMAGEVIEW-->
     <style name="ImageView.Corner" parent="">
-        <!--        <item name="cornerSizeTopRight">8dp</item>-->
-        <!--        <item name="cornerSizeTopLeft">8dp</item>-->
         <item name="cornerSizeBottomLeft">16dp</item>
         <item name="cornerSizeBottomRight">16dp</item>
         <item name="cornerFamily">rounded</item>
@@ -130,22 +103,8 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="TextViewRecipe.Warning">
-        <item name="android:textColor">@color/red_theme</item>
-        <item name="android:drawableTint">@color/red_theme</item>
-    </style>
-
     <style name="TextViewRecipe.Favorite">
         <item name="android:textSize">10sp</item>
-    </style>
-
-    <style name="TextViewRecipe.Warning.Favorite">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="ButtonRecipe">
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="RoundedImageView" parent="">
@@ -153,53 +112,20 @@
         <item name="cornerSize">16dp</item>
     </style>
 
-    <!--    TYPOGRAPHY-->
-    <style name="Text">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <!--    TODO complete typography-->
-<!--    <style name="Text.Body"></style>-->
-
-    <!--    SHAPEABLE IMAGE VIEW-->
-    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
-        <item name="cornerSize">50%</item>
-    </style>
-
-    <!--    CHIP-->
-    <style name="Colors_Widget.MaterialComponents.Chip.Choice"
-        parent="Widget.MaterialComponents.Chip.Choice"
-        >
-        <item name="chipBackgroundColor">@color/color_choice_chip_background_color</item>
-        <item name="chipStrokeColor">@color/color_choice_chip_strokecolor_selector</item>
-        <item name="chipStrokeWidth">1dp</item>
-        <item name="android:textColor">@color/color_choice_chip_text_color</item>
-
-<!--        <item name="android:padding">0dp</item>-->
-<!--        app:chipIconSize="32dp"-->
-<!--        app:textStartPadding="0dp"-->
-<!--        app:textEndPadding="0dp"-->
-    </style>
-
-<!--        parent="Widget.MaterialComponents.Chip.Choice"-->
-    <style name="Chip"
-        >
+    <style name="Chip">
         <item name="chipMinTouchTargetSize">30dp</item>
         <item name="chipIconVisible">true</item>
-<!--        <item name="chipIconTint">@color/primary</item>-->
         <item name="chipStrokeWidth">2dp</item>
-<!--        <item name="android:textColor">@color/color_choice_chip_text_color</item>-->
         <item name="cornerFamily">rounded</item>
-        <item name="chipIconSize">32dp</item>
         <item name="cornerSize">50%</item>
-        <item name="chipMinHeight">36dp</item>
+    </style>
+
+    <style name="Chip.Pantry" parent="Chip">
+        <item name="chipIconSize">32dp</item>
         <item name="chipStartPadding">8dp</item>
         <item name="chipEndPadding">8dp</item>
         <item name="textStartPadding">0dp</item>
         <item name="textEndPadding">0dp</item>
-    </style>
-
-    <style name="Chip.Pantry" parent="Chip">
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="android:layout_marginStart">8dp</item>
@@ -209,6 +135,11 @@
     </style>
 
     <style name="Chip.Shopping" parent="Chip">
+        <item name="chipIconSize">32dp</item>
+        <item name="chipStartPadding">8dp</item>
+        <item name="chipEndPadding">8dp</item>
+        <item name="textStartPadding">0dp</item>
+        <item name="textEndPadding">0dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="chipIconTint">@color/color_choice_chip_icon_tint_secondary</item>
@@ -216,13 +147,17 @@
         <item name="chipStrokeColor">@color/color_choice_chip_strokecolor_selector_secondary</item>
     </style>
 
+    <style name="Chip.Filter" parent="Chip">
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipIconTint">@color/color_choice_chip_icon_tint_secondary</item>
+        <item name="chipBackgroundColor">@color/color_choice_chip_background_color_secondary</item>
+        <item name="chipStrokeColor">@color/color_choice_chip_strokecolor_selector_secondary</item>
+        <item name="textStartPadding">4dp</item>
+    </style>
+
     <style name="Theme.EasyMeal.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="Theme.EasyMeal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.EasyMeal.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

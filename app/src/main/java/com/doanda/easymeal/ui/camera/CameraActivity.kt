@@ -2,12 +2,12 @@ package com.doanda.easymeal.ui.camera
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -18,15 +18,14 @@ import com.doanda.easymeal.R
 import com.doanda.easymeal.databinding.ActivityCameraBinding
 import com.doanda.easymeal.ui.ViewModelFactory
 import com.doanda.easymeal.ui.detection.result.DetectionResultActivity
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import com.doanda.easymeal.utils.createFile
 import java.io.File
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class CameraActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityCameraBinding.inflate(layoutInflater) }
-    private val viewModel by viewModels<CameraViewModel>{ ViewModelFactory.getInstance(this) }
 
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -43,7 +42,7 @@ class CameraActivity : AppCompatActivity() {
 
     private fun setupView() {
         binding.btnCapture.setOnClickListener {
-            Toast.makeText(this, "Capturing photo, please wait", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.detecting), Toast.LENGTH_SHORT).show()
             takePhoto()
         }
         binding.btnBack.setOnClickListener {
